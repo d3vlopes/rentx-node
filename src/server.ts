@@ -1,11 +1,11 @@
 import express from 'express'
 
+import { categoriesRoutes } from './routes/categories.routes'
+
 const app = express()
 
-app.post('/courses', (req, res) => {
-  const { name } = req.body
+app.use(express.json())
 
-  return res.json({ name })
-})
+app.use('/categories', categoriesRoutes)
 
 app.listen(3333, () => console.log('Server is running!'))
