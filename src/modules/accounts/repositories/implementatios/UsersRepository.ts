@@ -11,12 +11,21 @@ export class UsersRepository implements IUsersRepository {
     this.repository = getRepository(User)
   }
 
-  async create({ name, email, driver_license, password }: ICreateUserDTO) {
+  async create({
+    name,
+    email,
+    driver_license,
+    password,
+    id,
+    avatar,
+  }: ICreateUserDTO) {
     const user = this.repository.create({
       name,
       email,
       driver_license,
       password,
+      avatar,
+      id,
     })
 
     await this.repository.save(user)
