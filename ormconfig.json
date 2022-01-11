@@ -5,12 +5,9 @@
   "username": "lopes",
   "password": "lopes",
   "database": "rentx",
-  "migrations": ["./src/database/migrations/*.ts"],
-  "entities": [
-      "./src/modules/cars/entities/*.ts", 
-      "./src/modules/accounts/entities/*.ts"
-  ],
+  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+  "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }
