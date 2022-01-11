@@ -7,11 +7,13 @@ import swaggerFile from '../../../swagger.json'
 
 import { AppError } from '../../errors/AppError'
 
-import '../typeorm'
+import createConnection from '../typeorm'
+
 import '../../container'
 
 import { router } from './routes'
 
+createConnection()
 const app = express()
 
 app.use(express.json())
