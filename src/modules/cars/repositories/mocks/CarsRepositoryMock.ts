@@ -13,6 +13,7 @@ export class CarsRepositoryMock implements ICarsRepository {
     brand,
     fine_amount,
     license_plate,
+    id,
   }: ICreateCarDTO) {
     const car = new Car()
 
@@ -24,6 +25,7 @@ export class CarsRepositoryMock implements ICarsRepository {
       brand,
       fine_amount,
       license_plate,
+      id,
     })
 
     this.cars.push(car)
@@ -49,5 +51,9 @@ export class CarsRepositoryMock implements ICarsRepository {
     })
 
     return all
+  }
+
+  async findById(id: string) {
+    return this.cars.find((car) => car.id === id)
   }
 }
