@@ -19,6 +19,8 @@ export class CarsRepository implements ICarsRepository {
     fine_amount,
     license_plate,
     name,
+    specifications,
+    id,
   }: ICreateCarDTO) {
     const car = this.repository.create({
       brand,
@@ -28,6 +30,8 @@ export class CarsRepository implements ICarsRepository {
       fine_amount,
       license_plate,
       name,
+      specifications,
+      id,
     })
 
     await this.repository.save(car)
