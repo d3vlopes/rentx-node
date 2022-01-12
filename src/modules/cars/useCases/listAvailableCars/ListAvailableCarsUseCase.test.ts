@@ -4,7 +4,7 @@ import { ListAvailableCarsUseCase } from './ListAvailableCarsUseCase'
 let listAvailableUseCase: ListAvailableCarsUseCase
 let carsRepositoryMock: CarsRepositoryMock
 
-describe('List Cars', () => {
+describe('List Available Cars', () => {
   beforeEach(() => {
     carsRepositoryMock = new CarsRepositoryMock()
     listAvailableUseCase = new ListAvailableCarsUseCase(carsRepositoryMock)
