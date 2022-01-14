@@ -30,7 +30,7 @@ export class AuthenticationUserUseCase {
     const user = await this.UsersRepository.findByEmail(email)
 
     if (!user) {
-      throw new Error('Email or password incorrect!')
+      throw new AppError('Email or password incorrect!')
     }
 
     const passwordMatch = await compare(password, user.password)
