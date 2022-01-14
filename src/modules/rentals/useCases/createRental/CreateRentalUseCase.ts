@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe'
 import { IDateProvider } from '../../../../shared/container/providers/DateProvider/IDateProvider'
 import { AppError } from '../../../../shared/errors/AppError'
+import { ICarsRepository } from '../../../cars/repositories/ICarsRepository'
 import { IRentalsRepository } from '../../repositories/IRentalsRepository'
 
 interface IRequest {
@@ -16,6 +17,8 @@ export class CreateRentalUseCase {
     private rentalsRepository: IRentalsRepository,
     @inject('DayjsDateProvider')
     private dateProvider: IDateProvider,
+    @inject('CarsRepository')
+    private carsRepository: ICarsRepository,
   ) {}
 
   async execute({ user_id, car_id, expected_return_date }: IRequest) {
@@ -52,6 +55,8 @@ export class CreateRentalUseCase {
       car_id,
       expected_return_date,
     })
+
+    await this.carsRepository.updateAvailable(car_id, false)
 
     return rental
   }

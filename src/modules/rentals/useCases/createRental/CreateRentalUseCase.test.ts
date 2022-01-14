@@ -4,9 +4,11 @@ import { CreateRentalUseCase } from './CreateRentalUseCase'
 import { RentalsRepositoryMock } from '../../repositories/mock/RentalsRepositoryMock'
 import { AppError } from '../../../../shared/errors/AppError'
 import { DayjsDateProvider } from '../../../../shared/container/providers/DateProvider/implementations/DayjsDateProvider'
+import { CarsRepositoryMock } from '../../../cars/repositories/mocks/CarsRepositoryMock'
 
 let createRentalUseCase: CreateRentalUseCase
 let rentalsRepositoryMock: RentalsRepositoryMock
+let carsRepositoryMock: CarsRepositoryMock
 let dayjsDateProvider: DayjsDateProvider
 
 const dayAdd24Hours = dayjs().add(1, 'day').toDate()
@@ -15,9 +17,11 @@ describe('Create Rental', () => {
   beforeEach(() => {
     rentalsRepositoryMock = new RentalsRepositoryMock()
     dayjsDateProvider = new DayjsDateProvider()
+    carsRepositoryMock = new CarsRepositoryMock()
     createRentalUseCase = new CreateRentalUseCase(
       rentalsRepositoryMock,
       dayjsDateProvider,
+      carsRepositoryMock,
     )
   })
 
