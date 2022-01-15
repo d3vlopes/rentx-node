@@ -1,17 +1,28 @@
+import { DayjsDateProvider } from '../../../../shared/container/providers/DateProvider/implementations/DayjsDateProvider'
 import { AppError } from '../../../../shared/errors/AppError'
 import { ICreateUserDTO } from '../../dtos/ICreateUserDTO'
 import { UsersRepositoryMock } from '../../repositories/mocks/UsersRepositoryMock'
+import { UsersTokensRepositoryMock } from '../../repositories/mocks/UsersTokensRepository'
 import { CreateUserUseCase } from '../createUser/CreateUserUseCase'
 import { AuthenticationUserUseCase } from './AuthenticationUserUseCase'
 
 let authenticateUserUseCase: AuthenticationUserUseCase
 let usersRepositoryMock: UsersRepositoryMock
+let usersTokensRepositoryMock: UsersTokensRepositoryMock
 let createUserUseCase: CreateUserUseCase
+let dateProvider: DayjsDateProvider
 
 describe('Authenticate User', () => {
   beforeEach(() => {
     usersRepositoryMock = new UsersRepositoryMock()
-    authenticateUserUseCase = new AuthenticationUserUseCase(usersRepositoryMock)
+    usersTokensRepositoryMock = new UsersTokensRepositoryMock()
+    dateProvider = new DayjsDateProvider()
+
+    authenticateUserUseCase = new AuthenticationUserUseCase(
+      usersRepositoryMock,
+      usersTokensRepositoryMock,
+      dateProvider,
+    )
     createUserUseCase = new CreateUserUseCase(usersRepositoryMock)
   })
 
