@@ -35,4 +35,10 @@ export class UsersTokensRepository implements IUsersTokensRepository {
   async deleteById(id: string) {
     await this.repository.delete(id)
   }
+
+  async findByRefreshToken(refresh_token: string) {
+    const userToken = this.repository.findOne({ refresh_token })
+
+    return userToken
+  }
 }
