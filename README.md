@@ -1,7 +1,7 @@
 ![rentx logo](https://res.cloudinary.com/dbnq26wqe/image/upload/v1645136263/others/logo_umlw83.svg)
 
 ## Sobre
-O projeto Rentx é uma API de alguel de carros que permite que o usuário possa fazer o aluguel de um carro por um data determinada.<br />
+O projeto Rentx é uma API de aluguel de carros que permite que o usuário possa fazer o aluguel de um carro por um data determinada.<br />
 Foi desenvolvido durante o Ignite da [Rocketseat](https://www.rocketseat.com.br/).
 
 ## Principais features
